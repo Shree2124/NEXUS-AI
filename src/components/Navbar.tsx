@@ -42,14 +42,6 @@ const Navbar: React.FC = () => {
                 {link.name}
               </a>
             ))}
-            
-            <button 
-              onClick={toggleTheme}
-              className="p-2.5 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-600 dark:text-slate-400 transition-all active:scale-90"
-              aria-label="Toggle Theme"
-            >
-              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
 
             <a
               href="#contact"
