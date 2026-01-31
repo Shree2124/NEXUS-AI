@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import {
-  Send,
   Loader2,
   Sparkles,
   CheckCircle2,
-  ChevronRight,
   MoveRight,
 } from "lucide-react";
 import { analyzeLead } from "../services/geminiService";
@@ -76,15 +74,6 @@ const ContactForm: React.FC = () => {
       setStatus("error");
     }
   };
-
-  const industries = [
-    "Technology",
-    "Finance",
-    "Healthcare",
-    "Retail",
-    "Manufacturing",
-    "Energy",
-  ];
 
   if (status === "success" && analysis) {
     return (

@@ -38,7 +38,7 @@ export const analyzeLead = async (data: ContactFormData): Promise<AIAnalysisResp
         }
       }
     });
-
+    // @ts-ignore
     return JSON.parse(response?.text.trim());
   } catch (error) {
     console.error("Gemini Analysis Error:", error);

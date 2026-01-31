@@ -5,7 +5,7 @@ import Services from './components/Services';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import { TESTIMONIALS } from './constants';
-import { Quote, MoveRight, ArrowUpRight } from 'lucide-react';
+import { Quote, ArrowUpRight } from 'lucide-react';
 import { ThemeProvider } from './context/ThemeContext';
 
 const AppContent: React.FC = () => {
