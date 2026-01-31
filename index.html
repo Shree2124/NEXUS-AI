@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusAI | Strategic Enterprise Intelligence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="./src/index.css" rel="stylesheet">
+  <style>
+    :root {
+      --transition-speed: 0.6s;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .font-hero {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      letter-spacing: -0.04em;
+    }
+    .font-display {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    /* Absolute global theme transition */
+    *, *::before, *::after {
+      transition: background-color var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1), 
+                  color var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1), 
+                  border-color var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity var(--transition-speed) ease,
+                  box-shadow 0.3s ease;
+    }
+    .glass {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .dark .glass {
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .light .glass {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+    }
+    .gradient-text-mono {
+      background: linear-gradient(135deg, #000 0%, #666 50%, #000 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .dark .gradient-text-mono {
+      background: linear-gradient(135deg, #fff 0%, #888 50%, #fff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @keyframes slow-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-slow-spin {
+      animation: slow-spin 30s linear infinite;
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .dark ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .light ::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+</head>
+<body class="bg-white dark:bg-black text-slate-900 dark:text-slate-100 antialiased selection:bg-slate-500/20">
+  <div id="root"></div>
+</body>
+<script type="module" src="/src/main.tsx"></script>
+</html>
