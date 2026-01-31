@@ -1,12 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, BrainCircuit, Moon, Sun } from 'lucide-react';
-import { useTheme } from '../context/ThemeContext';
+import { Menu, X, BrainCircuit } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -74,13 +72,6 @@ const Navbar: React.FC = () => {
                 {link.name}
               </a>
             ))}
-            <button 
-              onClick={() => { toggleTheme(); setIsOpen(false); }}
-              className="flex items-center justify-center gap-2 text-sm font-black uppercase tracking-widest text-slate-600 dark:text-slate-300"
-            >
-              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-              Switch Mode
-            </button>
             <a
               href="#contact"
               onClick={() => setIsOpen(false)}
