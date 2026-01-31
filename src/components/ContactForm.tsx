@@ -21,7 +21,7 @@ const ContactForm: React.FC = () => {
     data: ContactFormData & { analysis: AIAnalysisResponse }
   ) => {
     const res = await axios.post(
-      "https://portfolio-kappa-lovat-61.vercel.app/api/v1/contact",
+      "https://portfolio-api-blush-eight.vercel.app/api/v1/contact",
       {
         name: data.name,
         email: data.email,
