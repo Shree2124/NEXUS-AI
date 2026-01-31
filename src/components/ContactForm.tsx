@@ -1,12 +1,8 @@
 import React, { useState } from "react";
-import {
-  Loader2,
-  Sparkles,
-  CheckCircle2,
-  MoveRight,
-} from "lucide-react";
+import { Loader2, Sparkles, CheckCircle2, MoveRight } from "lucide-react";
 import { analyzeLead } from "../services/geminiService";
 import type { ContactFormData, AIAnalysisResponse } from "../types";
+import axios from "axios";
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -24,12 +20,9 @@ const ContactForm: React.FC = () => {
   const sendContactEmail = async (
     data: ContactFormData & { analysis: AIAnalysisResponse }
   ) => {
-    const res = await fetch("https://portfolio-kappa-lovat-61.vercel.app/api/v1/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+    const res = await axios.post(
+      "https://portfolio-kappa-lovat-61.vercel.app/api/v1/contact",
+      {
         name: data.name,
         email: data.email,
         company: data.company,
@@ -41,15 +34,17 @@ const ContactForm: React.FC = () => {
           greeting: data.analysis.personalizedGreeting,
         },
         submittedAt: new Date().toISOString(),
-      }),
-    });
+      }
+    );
 
-    if (!res.ok) {
-      const error = await res.json();
-      throw new Error(error?.message || "Failed to send email");
+    console.log(res)
+
+    if (res.status !== 200) {
+
+      throw new Error("Failed to send email");
     }
 
-    return res.json();
+    return res.data;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
