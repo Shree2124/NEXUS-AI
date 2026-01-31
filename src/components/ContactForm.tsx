@@ -97,24 +97,7 @@ const ContactForm: React.FC = () => {
               <Sparkles className="absolute bottom-6 right-6 w-12 h-12 text-slate-900/5 dark:text-white/5" />
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
-              <div className="p-8 bg-white dark:bg-[#111111] border border-slate-100 dark:border-white/10 rounded-3xl text-center transition-colors duration-500">
-                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 block mb-2">
-                  Priority
-                </span>
-                <span className="text-slate-900 dark:text-white font-bold text-xl uppercase tracking-widest">
-                  {analysis.priority}
-                </span>
-              </div>
-              <div className="p-8 bg-white dark:bg-[#111111] border border-slate-100 dark:border-white/10 rounded-3xl text-center transition-colors duration-500">
-                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 block mb-2">
-                  Sentiment
-                </span>
-                <span className="text-slate-900 dark:text-white font-bold text-xl uppercase tracking-widest">
-                  {analysis.sentiment}
-                </span>
-              </div>
-            </div>
+            
 
             <button
               onClick={() => setStatus("idle")}
